@@ -7,10 +7,7 @@ import queue
 import time
 import dlib
 
-# =============================================
-# KONFIGURASI UTAMA
-# =============================================
-RTSP_URL = "rtsp://admin:S3mangat45**@192.168.1.64?tcp"  # Gunakan TCP
+RTSP_URL = "rtsp://admin:S3mangat45**@192.168.1.64?tcp"
 SKIP_FRAMES = 2  # Process setiap 3 frame
 SHOW_FPS = True
 MIN_FACE_SIZE = 100  # Ukuran minimal wajah (pixel)
@@ -22,9 +19,6 @@ MODEL_DETECTION = "cnn" if CUDA_AVAILABLE else "hog"  # Gunakan CNN jika CUDA te
 print(f"Running with {'CUDA' if CUDA_AVAILABLE else 'CPU'} acceleration")
 print(f"Using {MODEL_DETECTION.upper()} model for detection")
 
-# =============================================
-# VIDEO STREAM CLASS (Optimized)
-# =============================================
 class VideoStream:
     def __init__(self, src):
         self.stream = cv2.VideoCapture(src, cv2.CAP_FFMPEG)
@@ -82,8 +76,6 @@ def main():
     time.sleep(1.0)  # Warm-up
     
     frame_count = 0
-    start_time = time.time()
-
     while True:
         frame = cap.read()
         frame_count += 1
